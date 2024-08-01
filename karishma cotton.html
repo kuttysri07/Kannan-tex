@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+   
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Paytone+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+     
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+      }
+
+
+
+    body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .navbar{
+            background-color: #8900f2;
+
+        }
+        .container-fluid a{
+            color: white; 
+            font-size: 22px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .nav-item a{
+            font-size: 15px;
+        }
+
+        .container-fluid a:hover{
+            color: #0a0908;
+        }
+
+        #products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 300px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer; 
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card .content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #a100f2;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: #b100e8;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .card {
+                max-width: 100%;
+            }
+
+            #products {
+                padding: 10px;
+            }
+        }
+        .modal-container {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            overflow: auto;
+            text-align: center;
+        }
+
+        .close-btn {
+            color:#0a0908;
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .content h2{
+            font-size: 1em;
+            padding-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                max-width: 90%;
+            }
+        }
+
+
+        footer {
+            background-color: #8900f2;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="images/logo2.webp" alt="" height="35px"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="products.html">Sarees</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="gallery.html">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="aboutus.html">Aboutus</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+             
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+  
+    <section id="products">
+        
+
+    <!-- <div class="card">
+        <img src="images/5.jpeg" alt="">
+        <div class="content">
+            <h2>Tissue Cotton Sarees</h2>
+            <p>Unsulphured coconut copra can be used for cooking, snacking, extracting coconut oil, as animal feed, in cosmetics, and for industrial purposes like producing coconut flour.</p>
+        </div>
+        <button onclick="sendWhatsapp()">Click to buy</button>
+    </div> -->
+
+    <div class="card">
+        <div class="content">
+            <div class="image-card">
+                <img src="images/1.webp" alt="Image" class="card-image" onclick="expandImage(this)">
+            </div>
+            <h2>Sungudi sarees</h2>
+        </div>
+        <button onclick="sendWhatsapp()">Click to Order🛒</button>
+    </div>
+
+    <div class="card">
+        <div class="content">
+            <div class="image-card">
+                <img src="images/2.jpg" alt="Image" class="card-image" onclick="expandImage(this)">
+            </div>
+            <h2>Kora Cotton </h2>
+        </div>
+        <button onclick="sendWhatsapp()">Click to Order🛒</button>
+    </div>
+
+    <div class="card">
+        <div class="content">
+            <div class="image-card">
+                <img src="images/3.webp" alt="Image" class="card-image" onclick="expandImage(this)">
+            </div>
+            <h2>Karishma Cotton</h2>
+        </div>
+        <button onclick="sendWhatsapp()">Click to Order🛒</button>
+    </div>
+
+    <div class="card">
+        <div class="content">
+            <div class="image-card">
+                <img src="images/4.webp" alt="Image" class="card-image" onclick="expandImage(this)">
+            </div>
+            <h2>Mono cotton</h2>
+        </div>
+        <button onclick="sendWhatsapp()">Click to Order🛒</button>
+    </div>
+
+    <div class="card">
+        <div class="content">
+            <div class="image-card">
+                <img src="images/5.jpeg" alt="Image" class="card-image" onclick="expandImage(this)">
+            </div>
+            <h2>Cotton Acrylic</h2>
+        </div>
+        <button onclick="sendWhatsapp()">Click to Order🛒</button>
+    </div>
+
+    <div class="card">
+        <div class="content">
+            <div class="image-card">
+                <img src="images/1.webp" alt="Image" class="card-image" onclick="expandImage(this)">
+            </div>
+            <h2>Vaalai Naar Pattu </h2>
+        </div>
+        <button onclick="sendWhatsapp()">Click to Order🛒</button>
+    </div>
+
+    <div class="card">
+        <div class="content">
+            <div class="image-card">
+                <img src="images/2.jpg" alt="Image" class="card-image" onclick="expandImage(this)">
+            </div>
+            <h2>Micro Cotton</h2>
+        </div>
+        <button onclick="sendWhatsapp()">Click to Order🛒</button>
+    </div>
+
+    <div class="card">
+        <div class="content">
+            <div class="image-card">
+                <img src="images/3.webp" alt="Image" class="card-image" onclick="expandImage(this)">
+            </div>
+            <h2>Tissue Cotton</h2>
+        </div>
+        <button onclick="sendWhatsapp()">Click to Order🛒</button>
+    </div>
+
+    <div class="card">
+        <div class="content">
+            <div class="image-card">
+                <img src="images/4.webp" alt="Image" class="card-image" onclick="expandImage(this)">
+            </div>
+            <h2>Kora Cotton</h2>
+        </div>
+        <button onclick="sendWhatsapp()">Click to Order🛒</button>
+    </div>
+
+    <div class="modal-container" id="modalContainer">
+        <div class="modal-content" id="modalContent">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <img class="card-image" src="" alt="Expanded Image" id="expandedImage">
+        </div>
+    </div>
+
+</section>
+
+
+<footer>
+    <p>&copy; 2024 Kannan Tex. All rights reserved.</p>
+  </footer>
+
+
+
+
+
+<script>
+ function expandImage(imgElement) {
+            const modalContainer = document.getElementById('modalContainer');
+            const expandedImage = document.getElementById('expandedImage');
+        
+            expandedImage.src = imgElement.src;
+            modalContainer.style.display = 'block';
+        }
+        
+        function closeModal() {
+            const modalContainer = document.getElementById('modalContainer');
+            modalContainer.style.display = 'none';
+        }
+
+      function sendWhatsapp() {
+      const phoneNumber = '9345427624'; // Replace with your phone number in international format
+      const message = "🌟 Hi there! I'm interested in purchasing your Sarees.";
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
